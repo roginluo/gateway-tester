@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: free
+          uri: https://baidu.com
+          predicates:
+            - Path=/baidu
+          filters:
+            - name: Auth
+              args:
+                allow: false
+            - Access
+        - id: auth
+          uri: https://bing.org
+          predicates:
+            - Path=/bing
+          filters:
+            - Auth=true
+            - Access
+      default-filters:
+        - StripPrefix=1
