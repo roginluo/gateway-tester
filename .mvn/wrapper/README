@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/21638697/disable-maven-download-progress-indication/35653426#35653426
+
+-B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+
+mvn --no-transfer-progress ....
+mvn -ntp ....
